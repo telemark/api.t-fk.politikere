@@ -5,7 +5,8 @@ var config = require('./config')
 var db = mongojs(config.DB)
 var politicians = db.collection('politicians')
 var textIndexFields = {
-  'textIndex': 'text',
+  'name': 'text',
+  'committees.name': 'text'
 }
 var jobsDone = 0
 var jobsToDo = 5

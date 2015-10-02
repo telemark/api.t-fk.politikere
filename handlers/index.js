@@ -5,43 +5,63 @@ var config = require('../config');
 var db = mongojs(config.DB);
 var politicians = db.collection('politicians');
 
-function handleReply(error, data) {
-  return error ? error:data
-}
-
 function getPoliticians (request, reply) {
-  reply('Politicians!')
+  var skipNum = request.query.skip ? parseInt(request.query.skip, 10) : 0;
+  var limitNum = request.query.limit ? parseInt(request.query.limit, 10) : 20;
+  politicians.find({}).skip(skipNum).limit(limitNum, function(error, data) {
+    reply(error ? error:data)
+  });
 }
 
 function searchPoliticians (request, reply) {
-  politicians.find({'$text':{'$search':request.params.searchText}},
+  politicians.find({'$text': {'$search': request.params.searchText}},
     function(error, data) {
-      if (error) {
-        reply(error)
-      } else {
-        reply(data)
-      }
-    })
+      reply(error ? error:data)
+    }
+  )
 }
 
 function getPolitician (request, reply) {
-  reply('Politician!')
+  var pID = parseInt(request.params.politicianID, 10)
+  politicians.find({'recno': pID},
+    function(error, data) {
+      reply(error ? error:data)
+    }
+  )
 }
 
 function getParties (request, reply) {
-  reply('Parties!')
+  politicians.find({'committees.role': 'Parti'},
+    function(error, data) {
+      reply(error ? error:data)
+    }
+  )
 }
 
 function getParty (request, reply) {
-  reply('Party!')
+  var pID = parseInt(request.params.partyID, 10)
+  politicians.find({'committees.groupRecno': pID},
+    function(error, data) {
+      reply(error ? error:data)
+    }
+  )
 }
 
 function getCommittees (request, reply) {
-  reply('Committees!')
+  politicians.find({'committees.role': 'Parti'},
+    function(error, data) {
+      reply(error ? error:data)
+    }
+  )
 }
 
 function getCommittee (request, reply) {
-  reply('Committee!')
+  var cID = parseInt(request.params.committeeID, 10)
+  politicians.find({'committees.groupRecno': cID},
+    function(error, data) {
+      reply(error ? error:data)
+    }
+  )
 }
 
 module.exports.getPoliticians = getPoliticians;

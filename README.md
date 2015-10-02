@@ -5,5 +5,5 @@ hapi plug-in/standalone for politiker API
 ## Import from file tom MongoDB
 
 ```sh
-$ mongoimport -d tfk -c politicians data/mergedData.json --jsonArray
+$ mongoimport -d tfk -c politicians data/politicians.json --jsonArray
 ```
