@@ -1,6 +1,7 @@
 'use strict'
 
 var mongojs = require('mongojs')
+var execSync = require('child_process').execSync
 var config = require('./config')
 var db = mongojs(config.DB)
 var politicians = db.collection('politicians')
@@ -18,6 +19,8 @@ function areWeDoneYet() {
     process.exit(0)
   }
 }
+
+execSync('mongoimport --host=127.0.0.1 -d tfk -c politicians data/politicians.json --jsonArray')
 
 politicians.ensureIndex(textIndexFields, {'default_language': 'nb'}, function (error, data) {
     if (error) {
