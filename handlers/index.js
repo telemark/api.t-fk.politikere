@@ -31,7 +31,11 @@ function getPolitician (request, reply) {
 }
 
 function getParties (request, reply) {
-  politicians.find({'committees.role': 'Parti'},
+  politicians.aggregate([
+    {'$unwind': '$committees'},
+      {'$match': {'committees.role': 'Parti'}},
+      {'$group': {'_id': '$committees.groupRecno'}},
+  ],
     function(error, data) {
       reply(error ? error:data)
     }

@@ -16,6 +16,8 @@ Clone the repo
 $ git clone git@github.com:telemark/api.t-fk.politikere.git
 ```
 
+Make sure you have a MongoDB server running.
+
 cd into directory and run the setup script to install dependencies and create indexes for the collection
 
 ```sh
