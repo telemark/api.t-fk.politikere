@@ -12,6 +12,13 @@ var routes = [
   },
   {
     method: 'GET',
+    path: '/politicians/search/{searchText}',
+    config: {
+      handler: handlers.searchPoliticians
+    }
+  },
+  {
+    method: 'GET',
     path: '/politician/{politicianID}',
     config: {
       handler: handlers.getPolitician
