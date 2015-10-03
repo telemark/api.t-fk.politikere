@@ -23,3 +23,11 @@ cd into directory and run the setup script to install dependencies and create in
 ```sh
 $ npm run setup
 ```
+
+To use it as a standalone server
+
+```sh
+$ npm run start
+```
+
+To use it as a plug-in for your existing Hapi-server read the [docs](http://hapijs.com/tutorials/plugins).
