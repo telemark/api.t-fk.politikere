@@ -20,7 +20,7 @@ function areWeDoneYet() {
   }
 }
 
-execSync('mongoimport --host=127.0.0.1 -d tfk -c politicians data/politicians.json --jsonArray')
+execSync('mongoimport --host=' + config.DB_HOST + ' -d tfk -c politicians data/politicians.json --jsonArray')
 
 politicians.ensureIndex(textIndexFields, {'default_language': 'nb'}, function (error, data) {
     if (error) {
