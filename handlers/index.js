@@ -73,6 +73,15 @@ function getParty (request, reply) {
   )
 }
 
+function getPartyMembers (request, reply) {
+  var pID = parseInt(request.params.partyID, 10)
+  politicians.find({'committees.groupRecno': pID},
+    function(error, data) {
+      reply(error ? error:data)
+    }
+  )
+}
+
 function getCommittees (request, reply) {
   politicians.aggregate([
       {'$unwind': '$committees'},
@@ -88,15 +97,6 @@ function getCommittees (request, reply) {
         'url': {'$first': '$committees.url'}
       }}
     ],
-    function(error, data) {
-      reply(error ? error:data)
-    }
-  )
-}
-
-function getCommittee (request, reply) {
-  var cID = parseInt(request.params.committeeID, 10)
-  politicians.find({'committees.groupRecno': cID},
     function(error, data) {
       reply(error ? error:data)
     }
@@ -125,6 +125,15 @@ function getCommittee (request, reply) {
   )
 }
 
+function getCommitteeMembers (request, reply) {
+  var cID = parseInt(request.params.committeeID, 10)
+  politicians.find({'committees.groupRecno': cID},
+    function(error, data) {
+      reply(error ? error:data)
+    }
+  )
+}
+
 module.exports.getPoliticians = getPoliticians;
 
 module.exports.searchPoliticians = searchPoliticians;
@@ -135,6 +144,10 @@ module.exports.getParties = getParties;
 
 module.exports.getParty = getParty;
 
+module.exports.getPartyMembers = getPartyMembers;
+
 module.exports.getCommittees = getCommittees;
 
 module.exports.getCommittee = getCommittee;
+
+module.exports.getCommitteeMembers = getCommitteeMembers;

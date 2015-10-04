@@ -40,6 +40,13 @@ var routes = [
   },
   {
     method: 'GET',
+    path: '/party/{partyID}/members',
+    config: {
+      handler: handlers.getPartyMembers
+    }
+  },
+  {
+    method: 'GET',
     path: '/committees',
     config: {
       handler: handlers.getCommittees
@@ -50,6 +57,13 @@ var routes = [
     path: '/committee/{committeeID}',
     config: {
       handler: handlers.getCommittee
+    }
+  },
+  {
+    method: 'GET',
+    path: '/committee/{committeeID}/members',
+    config: {
+      handler: handlers.getCommitteeMembers
     }
   }
 ]
