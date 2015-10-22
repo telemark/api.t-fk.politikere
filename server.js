@@ -16,6 +16,11 @@ server.register([
   {
     register: politicianService,
     options: {}
+  },
+  require('vision'),
+  require('inert'),
+  {
+    register: require('lout')
   }
 ], function (err) {
   if (err) {

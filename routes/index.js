@@ -7,63 +7,72 @@ var routes = [
     method: 'GET',
     path: '/politicians',
     config: {
-      handler: handlers.getPoliticians
+      handler: handlers.getPoliticians,
+      description: 'List all politicians'
     }
   },
   {
     method: 'GET',
     path: '/politicians/search/{searchText}',
     config: {
-      handler: handlers.searchPoliticians
+      handler: handlers.searchPoliticians,
+      description: 'Search all politicians'
     }
   },
   {
     method: 'GET',
     path: '/politicians/{politicianID}',
     config: {
-      handler: handlers.getPolitician
+      handler: handlers.getPolitician,
+      description: 'Get politician by {politicianID}'
     }
   },
   {
     method: 'GET',
     path: '/parties',
     config: {
-      handler: handlers.getParties
+      handler: handlers.getParties,
+      description: 'List all political parties'
     }
   },
   {
     method: 'GET',
     path: '/parties/{partyID}',
     config: {
-      handler: handlers.getParty
+      handler: handlers.getParty,
+      description: 'Get political party by {partyID}'
     }
   },
   {
     method: 'GET',
     path: '/parties/{partyID}/members',
     config: {
-      handler: handlers.getPartyMembers
+      handler: handlers.getPartyMembers,
+      description: 'List all members of given political party by {partyID}'
     }
   },
   {
     method: 'GET',
     path: '/committees',
     config: {
-      handler: handlers.getCommittees
+      handler: handlers.getCommittees,
+      description: 'List all political committees'
     }
   },
   {
     method: 'GET',
     path: '/committees/{committeeID}',
     config: {
-      handler: handlers.getCommittee
+      handler: handlers.getCommittee,
+      description: 'Get political committee by {committeeID}'
     }
   },
   {
     method: 'GET',
     path: '/committees/{committeeID}/members',
     config: {
-      handler: handlers.getCommitteeMembers
+      handler: handlers.getCommitteeMembers,
+      description: 'List all members of given political committee by {committeeID}'
     }
   }
 ]
