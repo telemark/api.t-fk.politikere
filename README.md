@@ -43,6 +43,20 @@ To use it as a plug-in for your existing Hapi-server read the [docs](http://hapi
 
 ## Docker
 
+Start containers via docker-compose
+
+```sh
+$ docker-compose up
+```
+
+To import data
+
 ```sh
 $ mongoimport -h 192.168.99.100:27017 -d tfk -c politicians data/politicians.json --jsonArray
+```
+
+To setup indexes
+
+```sh
+$ mongo 192.168.99.100:27017/tfk config/mongodb.indexes.js
 ```
