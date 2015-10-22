@@ -19,7 +19,7 @@ var routes = [
   },
   {
     method: 'GET',
-    path: '/politician/{politicianID}',
+    path: '/politicians/{politicianID}',
     config: {
       handler: handlers.getPolitician
     }
@@ -33,14 +33,14 @@ var routes = [
   },
   {
     method: 'GET',
-    path: '/party/{partyID}',
+    path: '/parties/{partyID}',
     config: {
       handler: handlers.getParty
     }
   },
   {
     method: 'GET',
-    path: '/party/{partyID}/members',
+    path: '/parties/{partyID}/members',
     config: {
       handler: handlers.getPartyMembers
     }
@@ -54,14 +54,14 @@ var routes = [
   },
   {
     method: 'GET',
-    path: '/committee/{committeeID}',
+    path: '/committees/{committeeID}',
     config: {
       handler: handlers.getCommittee
     }
   },
   {
     method: 'GET',
-    path: '/committee/{committeeID}/members',
+    path: '/committees/{committeeID}/members',
     config: {
       handler: handlers.getCommitteeMembers
     }

@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/telemark/api.t-fk.politikere.svg?branch=master)](https://travis-ci.org/telemark/api.t-fk.politikere)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 # api.t-fk.politikere
 Hapi.js plug-in/standalone for Telemark County Councils politician API.

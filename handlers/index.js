@@ -1,22 +1,22 @@
 'use strict'
 
-var mongojs = require('mongojs');
-var config = require('../config');
-var db = mongojs(config.DB);
-var politicians = db.collection('politicians');
+var mongojs = require('mongojs')
+var config = require('../config')
+var db = mongojs(config.DB)
+var politicians = db.collection('politicians')
 
 function getPoliticians (request, reply) {
-  var skipNum = request.query.skip ? parseInt(request.query.skip, 10) : 0;
-  var limitNum = request.query.limit ? parseInt(request.query.limit, 10) : 20;
-  politicians.find({}).skip(skipNum).limit(limitNum, function(error, data) {
-    reply(error ? error:data)
-  });
+  var skipNum = request.query.skip ? parseInt(request.query.skip, 10) : 0
+  var limitNum = request.query.limit ? parseInt(request.query.limit, 10) : 20
+  politicians.find({}).skip(skipNum).limit(limitNum, function findPoliticians (error, data) {
+    reply(error || data)
+  })
 }
 
 function searchPoliticians (request, reply) {
   politicians.find({'$text': {'$search': request.params.searchText}},
-    function(error, data) {
-      reply(error ? error:data)
+    function findPoliticiansBySearch (error, data) {
+      reply(error || data)
     }
   )
 }
@@ -24,8 +24,8 @@ function searchPoliticians (request, reply) {
 function getPolitician (request, reply) {
   var pID = parseInt(request.params.politicianID, 10)
   politicians.find({'recno': pID},
-    function(error, data) {
-      reply(error ? error:data)
+    function findPolitician (error, data) {
+      reply(error || data)
     }
   )
 }
@@ -45,8 +45,8 @@ function getParties (request, reply) {
         'url': {'$first': '$committees.url'}
       }}
   ],
-    function(error, data) {
-      reply(error ? error:data)
+    function aggregatePartiesResult (error, data) {
+      reply(error || data)
     }
   )
 }
@@ -66,9 +66,9 @@ function getParty (request, reply) {
         'tlf': {'$first': '$committees.tlf'},
         'url': {'$first': '$committees.url'}
       }}
-    ],
-    function(error, data) {
-      reply(error ? error:data)
+  ],
+    function aggregatePartyResult (error, data) {
+      reply(error || data)
     }
   )
 }
@@ -76,8 +76,8 @@ function getParty (request, reply) {
 function getPartyMembers (request, reply) {
   var pID = parseInt(request.params.partyID, 10)
   politicians.find({'committees.groupRecno': pID},
-    function(error, data) {
-      reply(error ? error:data)
+    function findPartyMembers (error, data) {
+      reply(error || data)
     }
   )
 }
@@ -96,9 +96,9 @@ function getCommittees (request, reply) {
         'tlf': {'$first': '$committees.tlf'},
         'url': {'$first': '$committees.url'}
       }}
-    ],
-    function(error, data) {
-      reply(error ? error:data)
+  ],
+    function aggregateCommitteesResult (error, data) {
+      reply(error || data)
     }
   )
 }
@@ -118,9 +118,9 @@ function getCommittee (request, reply) {
         'tlf': {'$first': '$committees.tlf'},
         'url': {'$first': '$committees.url'}
       }}
-    ],
-    function(error, data) {
-      reply(error ? error:data)
+  ],
+    function aggregateCommitteeResult (error, data) {
+      reply(error || data)
     }
   )
 }
@@ -128,26 +128,26 @@ function getCommittee (request, reply) {
 function getCommitteeMembers (request, reply) {
   var cID = parseInt(request.params.committeeID, 10)
   politicians.find({'committees.groupRecno': cID},
-    function(error, data) {
-      reply(error ? error:data)
+    function findCommitteeMembersResult (error, data) {
+      reply(error || data)
     }
   )
 }
 
-module.exports.getPoliticians = getPoliticians;
+module.exports.getPoliticians = getPoliticians
 
-module.exports.searchPoliticians = searchPoliticians;
+module.exports.searchPoliticians = searchPoliticians
 
-module.exports.getPolitician = getPolitician;
+module.exports.getPolitician = getPolitician
 
-module.exports.getParties = getParties;
+module.exports.getParties = getParties
 
-module.exports.getParty = getParty;
+module.exports.getParty = getParty
 
-module.exports.getPartyMembers = getPartyMembers;
+module.exports.getPartyMembers = getPartyMembers
 
-module.exports.getCommittees = getCommittees;
+module.exports.getCommittees = getCommittees
 
-module.exports.getCommittee = getCommittee;
+module.exports.getCommittee = getCommittee
 
-module.exports.getCommitteeMembers = getCommitteeMembers;
+module.exports.getCommitteeMembers = getCommitteeMembers

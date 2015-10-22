@@ -6,8 +6,10 @@ var config = require('./config')
 var politicianService = require('./index')
 
 server.connection({
-  port:config.SERVER_PORT,
-  routes:{cors:{credentials:true}}
+  port: config.SERVER_PORT,
+  routes: {cors:
+    {credentials: true}
+  }
 })
 
 server.register([
@@ -35,4 +37,4 @@ function stopServer () {
 
 module.exports.start = startServer
 
-module.exports.stop =  stopServer
+module.exports.stop = stopServer

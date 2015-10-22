@@ -12,7 +12,7 @@ var textIndexFields = {
 var jobsDone = 0
 var jobsToDo = 5
 
-function areWeDoneYet() {
+function areWeDoneYet () {
   jobsDone++
   if (jobsDone === jobsToDo) {
     console.log('Everything\'s shiny, Cap\'n. Not to fret.')
@@ -23,13 +23,13 @@ function areWeDoneYet() {
 execSync('mongoimport --host=' + config.DB_HOST + ' -d tfk -c politicians data/politicians.json --jsonArray')
 
 politicians.ensureIndex(textIndexFields, {'default_language': 'nb'}, function (error, data) {
-    if (error) {
-      console.error(error);
-    } else {
-      console.log('TextIndex created')
-      console.log(data)
-    }
-    areWeDoneYet()
+  if (error) {
+    console.error(error)
+  } else {
+    console.log('TextIndex created')
+    console.log(data)
+  }
+  areWeDoneYet()
 })
 
 politicians.ensureIndex({'recno': 1}, function (error, data) {
