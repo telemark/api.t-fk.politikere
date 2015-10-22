@@ -40,3 +40,9 @@ $ npm run start
 ```
 
 To use it as a plug-in for your existing Hapi-server read the [docs](http://hapijs.com/tutorials/plugins).
+
+## Docker
+
+```sh
+$ mongoimport -h 192.168.99.100:27017 -d tfk -c politicians data/politicians.json --jsonArray
+```

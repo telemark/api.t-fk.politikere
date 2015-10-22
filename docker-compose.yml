@@ -1,0 +1,12 @@
+apiserver:
+  build: .
+  name:
+    api-tfk-politikere
+  links:
+    - mongodb
+  ports:
+    - "3000:3000"
+mongodb:
+  image: mongo
+  ports:
+   - "27017:27017"
