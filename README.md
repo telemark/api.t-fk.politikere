@@ -58,5 +58,5 @@ $ mongoimport -h 192.168.99.100:27017 -d tfk -c politicians data/politicians.jso
 To setup indexes
 
 ```sh
-$ mongo 192.168.99.100:27017/tfk config/mongodb.indexes.js
+$ mongo 192.168.99.100:27017/tfk config/mongodb.indexes
 ```
