@@ -1,9 +1,9 @@
 'use strict'
 
 var config = {
-  SERVER_PORT: 3000,
-  DB_HOST: '127.0.0.1',
-  DB: 'mongodb://mongodb_1:27017/tfk'
+  SERVER_PORT: process.env.SERVER_PORT || 3000,
+  DB_HOST: process.env.DB_HOST || '127.0.0.1',
+  DB_CONNECTION: process.env.DB_CONNECTION || 'mongodb://mongodb_1:27017/tfk'
 }
 
 module.exports = config

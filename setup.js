@@ -3,7 +3,7 @@
 var mongojs = require('mongojs')
 var execSync = require('child_process').execSync
 var config = require('./config')
-var db = mongojs(config.DB)
+var db = mongojs(config.DB_CONNECTION)
 var politicians = db.collection('politicians')
 var textIndexFields = {
   'name': 'text',

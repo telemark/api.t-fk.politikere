@@ -2,7 +2,7 @@
 
 var mongojs = require('mongojs')
 var config = require('../config')
-var db = mongojs(config.DB)
+var db = mongojs(config.DB_CONNECTION)
 var politicians = db.collection('politicians')
 
 function getPoliticians (request, reply) {
