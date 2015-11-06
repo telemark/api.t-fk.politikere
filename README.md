@@ -43,11 +43,6 @@ To use it as a plug-in for your existing Hapi-server read the [docs](http://hapi
 
 ## Docker
 
-Start containers via docker-compose
-
-```sh
-$ docker-compose up
-```
 
 To import data
 

@@ -7,8 +7,8 @@ var politicianService = require('./index')
 
 server.connection({
   port: config.SERVER_PORT,
-  routes: {cors:
-    {credentials: true}
+  routes: {
+    cors: true
   }
 })
 

@@ -1,6 +1,6 @@
 {
   "name": "api.t-fk.politikere",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "API for politicians in Telemark County Council",
   "license": "MIT",
   "author": {
@@ -35,7 +35,7 @@
     "url": "git://github.com/telemark/api.t-fk.politikere.git"
   },
   "dependencies": {
-    "hapi": "^11.0.2",
+    "hapi": "^11.1.0",
     "inert": "^3.1.0",
     "joi": "^6.9.1",
     "lout": "^7.2.0",
