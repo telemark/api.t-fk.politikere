@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/telemark/api.t-fk.politikere.svg?branch=master)](https://travis-ci.org/telemark/api.t-fk.politikere)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 # api.t-fk.politikere
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/telemark/api.t-fk.politikere.svg)](https://greenkeeper.io/)
 Hapi.js plug-in/standalone for Telemark County Councils politician API.
 All politicians/parties/committees are registered in p360 and exported with the [node-export-politicians](https://github.com/telemark/node-export-politicians) module.
 The [data/politicians.json](data/politicians.json) file in this repo is the same as [data/mergedData.json](https://github.com/telemark/node-export-politicians/blob/master/data/mergedData.json)
