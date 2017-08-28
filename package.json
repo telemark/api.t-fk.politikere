@@ -1,6 +1,6 @@
 {
   "name": "api.t-fk.politikere",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "API for politicians in Telemark County Council",
   "license": "MIT",
   "private": true,
@@ -22,30 +22,31 @@
   "homepage": "https://github.com/telemark/api.t-fk.politikere",
   "main": "index.js",
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=8.4.0"
   },
   "scripts": {
     "test": "standard && tap --reporter=spec test/*.js",
     "coverage": "tap test/*.js --coverage",
     "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls",
     "start": "node standalone.js",
-    "setup": "npm install && node setup.js"
+    "setup": "npm install",
+    "standard-fix": "standard --fix"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/telemark/api.t-fk.politikere.git"
   },
   "dependencies": {
-    "hapi": "^16.1.0",
-    "inert": "^4.1.0",
-    "joi": "^10.2.1",
-    "lout": "^9.2.0",
-    "mongojs": "^2.4.0",
-    "vision": "^4.1.1"
+    "hapi": "16.5.2",
+    "inert": "4.2.1",
+    "joi": "10.6.0",
+    "lout": "10.0.2",
+    "mongojs": "2.4.1",
+    "vision": "4.1.1"
   },
   "devDependencies": {
-    "coveralls": "^2.11.4",
-    "standard": "^8.6.0",
-    "tap": "^10.0.2"
+    "coveralls": "2.13.1",
+    "standard": "10.0.3",
+    "tap": "10.7.2"
   }
 }
