@@ -42,7 +42,7 @@
     "lout": "10.0.3",
     "joi": "13.0.2",
     "mongojs": "2.4.1",
-    "vision": "4.1.1"
+    "vision": "5.2.0"
   },
   "devDependencies": {
     "coveralls": "3.0.0",
