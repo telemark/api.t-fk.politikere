@@ -39,7 +39,7 @@
   "dependencies": {
     "hapi": "17.1.1",
     "inert": "5.0.0-rc1",
-    "lout": "10.0.3",
+    "lout": "11.0.0",
     "joi": "13.1.2",
     "mongojs": "2.5.0",
     "vision": "4.1.1"
