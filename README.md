@@ -32,16 +32,14 @@ Setup the [config](config/index.js) so it matches your environment.
 cd into directory and run the setup script to install dependencies and create indexes for the collection.
 
 ```sh
-$ npm run setup
+$ npm install
 ```
 
-To use it as a standalone server:
+Start the server:
 
 ```sh
 $ npm run start
 ```
-
-To use it as a plug-in for your existing Hapi-server read the [docs](http://hapijs.com/tutorials/plugins).
 
 ## Docker
 

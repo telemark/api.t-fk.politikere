@@ -1,45 +1,31 @@
 'use strict'
 
-var Hapi = require('hapi')
-var server = new Hapi.Server()
-var config = require('./config')
-var politicianService = require('./index')
+const Hapi = require('@hapi/hapi')
+const config = require('./config')
+const routes = require('./routes')
 
-server.connection({
-  port: config.SERVER_PORT,
-  routes: {
-    cors: true
-  }
+// Create a server with a host and port
+const server = Hapi.server({
+  port: config.SERVER_PORT
 })
 
-server.register([
-  {
-    register: politicianService,
-    options: {}
-  },
-  require('vision'),
-  require('inert'),
-  {
-    register: require('lout')
-  }
-], function (err) {
-  if (err) {
-    console.error('Failed to load a plugin:', err)
-  }
+// Add the routes
+server.route(routes)
+
+const plugins = [
+  { plugin: require('@hapi/vision') },
+  { plugin: require('@hapi/inert') },
+  { plugin: require('lout') }
+]
+
+// Start the server
+async function start () {
+  await server.register(plugins)
+
+  await server.start()
+  console.log(`server - server running - ${server.info.uri}`)
+}
+
+start().catch(error => {
+  console.error(`server - ${error}`)
 })
-
-function startServer () {
-  server.start(function () {
-    console.log('Server running at:', server.info.uri)
-  })
-}
-
-function stopServer () {
-  server.stop(function () {
-    console.log('Server stopped')
-  })
-}
-
-module.exports.start = startServer
-
-module.exports.stop = stopServer
