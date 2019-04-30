@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/telemark/api.t-fk.politikere.svg?branch=master)](https://travis-ci.org/telemark/api.t-fk.politikere)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
-[![Greenkeeper badge](https://badges.greenkeeper.io/telemark/api.t-fk.politikere.svg)](https://greenkeeper.io/)
 
 # api.t-fk.politikere
 
@@ -61,5 +60,3 @@ $ mongo 192.168.99.100:27017/tfk config/mongodb.indexes
 ## License
 
 [MIT](LICENSE)
-
-![Robohash image of api.t-fk.politikere](https://robots.kebabstudios.party/api.t-fk.politikere.png "Robohash image of api.t-fk.politikere")
