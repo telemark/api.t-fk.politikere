@@ -1,25 +1,11 @@
-# Setting the base to nodejs 8.4.0
-FROM node:8.16.0-alpine@sha256:396b157f138a837de34fc48dc0ca8e37bf04d2fefc568e962acf429418950948
+FROM mhart/alpine-node:10 as base
+WORKDIR /usr/src
+COPY package.json package-lock.json /usr/src/
+RUN npm i --production
+COPY . .
 
-# Maintainer
-MAINTAINER Geir Gåsodden
-
-#### Begin setup ####
-
-# Installs git
-RUN apk add --update --no-cache git
-
-# Bundle app source
-COPY . /src
-
-# Change working directory
-WORKDIR "/src"
-
-# Install dependencies
-RUN npm install --production
-
-# Expose 3000
+FROM mhart/alpine-node:base-10
+WORKDIR /usr/src
+COPY --from=base /usr/src .
 EXPOSE 3000
-
-# Startup
-ENTRYPOINT npm start
+CMD ["node", "standalone.js"]
