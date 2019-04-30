@@ -29,20 +29,20 @@
     "coverage": "tap test/*.js --coverage",
     "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls",
     "start": "node standalone.js",
-    "setup": "npm install",
-    "standard-fix": "standard --fix"
+    "standard-fix": "standard --fix",
+    "refresh": "rm -rf node_modules && rm package-lock.json && npm install"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/telemark/api.t-fk.politikere.git"
   },
   "dependencies": {
-    "hapi": "17.8.5",
-    "inert": "5.1.3",
-    "lout": "10.0.3",
-    "joi": "14.3.1",
-    "mongojs": "2.6.0",
-    "vision": "4.1.1"
+    "@hapi/hapi": "18.3.1",
+    "@hapi/inert": "5.2.0",
+    "@hapi/joi": "15.0.0",
+    "@hapi/vision": "5.5.2",
+    "lout": "11.2.3",
+    "mongojs": "2.6.0"
   },
   "devDependencies": {
     "coveralls": "3.0.3",
