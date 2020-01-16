@@ -37,7 +37,7 @@
     "url": "git://github.com/telemark/api.t-fk.politikere.git"
   },
   "dependencies": {
-    "@hapi/hapi": "18.3.1",
+    "@hapi/hapi": "19.0.5",
     "@hapi/inert": "5.2.0",
     "@hapi/vision": "5.5.2",
     "lout": "11.2.3",
